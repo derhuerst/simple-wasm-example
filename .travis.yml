@@ -3,9 +3,11 @@ language: node_js
 node_js:
   - 'stable'
 install:
+  - curl https://sh.rustup.rs -sSf | sh -s -- -y -v
+  - export PATH="$HOME/.cargo/bin:$PATH"
   - rustup install nightly
-  - rustup target add asmjs-unknown-emscripten
-  - rustup target add wasm32-unknown-emscripten
+  - rustup target add asmjs-unknown-emscripten --toolchain nightly
+  - rustup target add wasm32-unknown-emscripten --toolchain nightly
   - wget -q 'https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz'
   - tar -xzv -f emsdk-portable.tar.gz
   - source ./emsdk-portable/emsdk_env.sh
