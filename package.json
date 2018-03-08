@@ -5,7 +5,10 @@
 	"version": "0.1.0",
 	"main": "index.js",
 	"files": [
-		"index.js"
+		"index.js",
+		"lib/hello_world/target/asmjs-unknown-emscripten/hello_world.js",
+		"lib/hello_world/target/wasm32-unknown-emscripten/hello_world.js",
+		"lib/hello_world/target/wasm32-unknown-emscripten/hello_world.wasm"
 	],
 	"keywords": [
 		"wasm",
@@ -24,11 +27,10 @@
 	"dependencies": {
 	},
 	"devDependencies": {
-		"tap-min": "^1.2.2",
-		"tape": "^4.8.0"
 	},
 	"scripts": {
-		"test": "env NODE_ENV=dev node test.js | tap-min",
+		"build:dev": "cd lib/hello_world && cargo build --target asmjs-unknown-emscripten && cargo build --target wasm32-unknown-emscripten",
+		"build": "cd lib/hello_world && cargo build --target asmjs-unknown-emscripten --release && cargo build --target wasm32-unknown-emscripten --release",
 		"prepublishOnly": "npm test"
 	}
 }

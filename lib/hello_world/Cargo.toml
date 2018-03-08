@@ -1,0 +1,11 @@
+[package]
+name = "hello_world"
+version = "0.1.0"
+authors = ["Jannis R <mail@jannisr.de>"]
+
+[dependencies]
+
+[target.asmjs-unknown-emscripten]
+rustflags = [
+    "-Clink-args=-s EXPORTED_FUNCTIONS=['_say_hello']",
+]
