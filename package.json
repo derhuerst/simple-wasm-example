@@ -6,9 +6,10 @@
 	"main": "index.js",
 	"files": [
 		"index.js",
-		"lib/hello_world/target/asmjs-unknown-emscripten/hello_world.js",
-		"lib/hello_world/target/wasm32-unknown-emscripten/hello_world.js",
-		"lib/hello_world/target/wasm32-unknown-emscripten/hello_world.wasm"
+		"src",
+		"target/asmjs-unknown-emscripten/release/hello_world.js",
+		"target/wasm32-unknown-emscripten/release/hello_world.js",
+		"target/wasm32-unknown-emscripten/release/hello_world.wasm"
 	],
 	"keywords": [
 		"wasm",
@@ -29,8 +30,12 @@
 	"devDependencies": {
 	},
 	"scripts": {
-		"build:dev": "cd lib/hello_world && cargo build --target asmjs-unknown-emscripten && cargo build --target wasm32-unknown-emscripten",
-		"build": "cd lib/hello_world && cargo build --target asmjs-unknown-emscripten --release && cargo build --target wasm32-unknown-emscripten --release",
+		"build:dev:asm": "cargo build --target asmjs-unknown-emscripten",
+		"build:dev:wasm": "cargo build --target wasm32-unknown-emscripten",
+		"build:asm": "cargo build --target asmjs-unknown-emscripten --release",
+		"build:wasm": "cargo build --target wasm32-unknown-emscripten --release",
+		"build:dev": "npm run build:dev:asm && npm run build:dev:wasm",
+		"build": "npm run build:asm && npm run build:wasm",
 		"prepublishOnly": "npm test"
 	}
 }

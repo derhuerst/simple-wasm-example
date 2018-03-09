@@ -1,7 +1,9 @@
 [package]
+publish = false
 name = "hello_world"
 version = "0.1.0"
 authors = ["Jannis R <mail@jannisr.de>"]
+workspace = "../.."
 
 [dependencies]
 
