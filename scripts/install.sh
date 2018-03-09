@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
 # rustup nightly
-curl https://sh.rustup.rs -sSf | sh -s -- -y -v
+curl https://sh.rustup.rs -sSf | sh -s -- -y
 export PATH="$HOME/.cargo/bin:$PATH"
 rustup update nightly
 
