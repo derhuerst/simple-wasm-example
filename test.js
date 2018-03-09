@@ -1,8 +1,5 @@
 'use strict'
 
-const test = require('tape')
+const sayHello = require('.')
 
-const todo = require('.')
-
-test('todo', (t) => {
-})
+sayHello()

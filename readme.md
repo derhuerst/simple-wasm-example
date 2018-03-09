@@ -20,6 +20,7 @@ The following tools are expected to be installed and/or available via `$PATH`. Y
 
 ```shell
 npm run build
+npm test
 ```
 
 
