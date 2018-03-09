@@ -1,13 +1,12 @@
 #!/bin/bash
 
-# rustup nightly
-curl https://sh.rustup.rs -sSf | sh -s -- -y
+# rustup
+curl https://sh.rustup.rs -sSf | sh -s -- -y --default-toolchain none
 export PATH="$HOME/.cargo/bin:$PATH"
-rustup update nightly
 
 # asm.js & WASM targets
-rustup target add asmjs-unknown-unknown --toolchain nightly
-rustup target add wasm32-unknown-unknown --toolchain nightly
+rustup install nightly-asmjs-unknown-unknown
+rustup install nightly-wasm32-unknown-unknown
 
 # Emscripten SDK
 wget -q 'https://s3.amazonaws.com/mozilla-games/emscripten/releases/emsdk-portable.tar.gz'
