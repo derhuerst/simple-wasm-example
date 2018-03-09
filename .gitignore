@@ -10,3 +10,6 @@ package-lock.json
 shrinkwrap.yaml
 
 target
+hello_world.wasm
+hello_world.wasm.js
+hello_world.asm.js

@@ -3,21 +3,11 @@
 const path = require('path')
 
 let sayHello
-if (Webassembly) {
-	const file = path.join(
-		__dirname,
-		'target', 'wasm32-unknown-emscripten', 'release',
-		'hello_world.js'
-	)
-	const module = require(file)
+if (WebAssembly) {
+	const module = require(path.join(__dirname, 'hello_world.wasm.js'))
 	sayHello = module._say_hello
 } else {
-	const dir = path.join(
-		__dirname,
-		'target', 'asmjs-unknown-emscripten', 'release',
-		'hello_world.js'
-	)
-	const module = require(file)
+	const module = require(path.join(__dirname, 'hello_world.asm.js'))
 	sayHello = module.cwrap('say_hello', '', [])
 }
 
