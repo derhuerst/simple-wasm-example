@@ -1,0 +1,9 @@
+sudo: false
+language: node_js
+node_js:
+  - 'stable'
+before_script:
+  - './scripts/install.sh'
+script:
+  - 'npm run build'
+  - 'npm test'
