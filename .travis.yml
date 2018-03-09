@@ -4,6 +4,7 @@ node_js:
   - 'stable'
 before_script:
   - './scripts/install.sh'
+  - 'export PATH="$HOME/.cargo/bin:$PATH"'
 script:
   - 'npm run build'
   - 'npm test'
